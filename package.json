@@ -1,9 +1,9 @@
 {
-  "name": "zoomkoding.com",
+  "name": "blog.hyperpipe.kr",
   "private": false,
-  "description": "A neat blog theme for developers",
+  "description": "하이퍼파이프(HyperPipe)-AI/AX 컨설팅, AI 교육 전문 기업",
   "version": "3.0.0",
-  "author": "zoomkoding <zoomkoding@gmail.com>",
+  "author": "Rock Kang(강록) <rock@hyperpipe.kr>",
   "dependencies": {
     "@mui/icons-material": "^5.1.0",
     "@mui/material": "^5.1.0",

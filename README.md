@@ -1,36 +1,6 @@
-<h1 align="center">
-  Zoomkoding Gatsby Blog
-</h1>
+# HyperPipe Blog
 
-<p align="center">
-  <a href="https://github.com/zoomkoding/zoomkoding-gatsby-blog/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-0BSD-blue.svg" alt="Zoomkoding Gatsby Blog is released under the 0BSD license." />
-  </a>
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
-  <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="contributions welcome" />
-</p>
-
-**Demo Websites**: [**English**](https://zoomkoding.netlify.app) | [**Korean**](https://www.zoomkoding.com)
-
-[**English README.md**](https://github.com/zoomkoding/zoomkoding-gatsby-blog/blob/master/README.en.md)
-
-## 👋 소개
-
-블로그를 직접 운영하면서 조금씩 그려봤던 이상적인 개발 블로그 테마를 Gatsby를 통해 만들어보게 되었습니다.  
-이 테마가 블로그를 운영하고자 하시는 분들에게 자신의 이야기를 잘 담을 수 있는 공간이 되었으면 좋겠습니다.🙌
-
-블로그 테마가 맘에 드셨다면 아래 과정을 통해 자신의 블로그를 만들어보시길 바랍니다!
-
-> 혹시 만드시는 과정에서 궁금하신 점이나 어려움이 있으시다면 [이슈](https://github.com/zoomKoding/zoomkoding-gatsby-blog/issues/new)를 통해 문의 남겨주세요!  
-> ⭐️는 블로그 운영에 큰 힘이 됩니다!😊
-
-<a href="https://star-history.com/#zoomkoding/zoomkoding-gatsby-blog&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=zoomkoding/zoomkoding-gatsby-blog&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=zoomkoding/zoomkoding-gatsby-blog&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=zoomkoding/zoomkoding-gatsby-blog&type=Date" width="600px"/>
-  </picture>
-</a>
+by Zoomkoding Gatsby Blog
 
 ## ✨ 기능
 
@@ -47,10 +17,6 @@
 - 📈 Google Analytics 지원
 - 🧢 Emoji 지원
 
-
-
-
-
 ## 🚀 시작하기
 
 Github Page나 Netlify 중 원하시는 배포 환경에 따라 다음 과정을 진행하시면 빠르게 블로그를 만드실 수 있습니다.
@@ -64,7 +30,7 @@ Github Page나 Netlify 중 원하시는 배포 환경에 따라 다음 과정을
 
 아래 버튼을 활용하면 개인 계정에 `zoomkoding-gatsby-blog`를 사용하고 있는 Repository 생성과 Netlify에 배포를 동시에 진행할 수 있습니다. 이후에, 생성된 Repository를 clone합니다.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/zoomkoding/zoomkoding-gatsby-blog)
+[Deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/zoomkoding/zoomkoding-gatsby-blog)
 
 ### 🏃‍♀️ 실행하기
 
@@ -78,7 +44,8 @@ $ npm install
 $ npm start
 ```
 
-<br/>
+  
+
 
 위 명령어가 문제 없이 실행됐다면 [http://localhost:8000](http://localhost:8000)에서 블로그를 확인하실 수 있습니다.
 
@@ -177,7 +144,8 @@ about 페이지 또한 gatsby-meta-config.js를 통해 생성됩니다. about �
 }
 ```
 
-<br/>
+  
+
 
 그렇게 내용을 문제 없이 입력하셨다면 나만의 블로그가 탄생한 것을 확인하실 수 있습니다.🎉
 
@@ -218,8 +186,10 @@ categories: tutorial
 
 글의 우측에 목차가 보이기를 원하신다면 `index.md` 파일 맨 아래에 다음 내용을 추가하시면 자동으로 목차가 생성됩니다.
 
-    ```toc
-    ```
+```
+```toc
+```
+```
 
 ### 💡 버그 리포트 & 문의
 
@@ -227,3 +197,4 @@ categories: tutorial
 
 > 🤔 혹시 특정 기능이 없어서 테마 사용을 망설이시거나 제안하고 싶으신 기능이 있으시다면,  
 > 👉 [여기](https://github.com/zoomKoding/zoomkoding-gatsby-blog/issues/40)에 댓글 남겨주세요! 적극적으로 반영하겠습니다 :)
+
