@@ -1,3 +1,3 @@
 User-agent: *
-Sitemap: https://blog.hyperpipe.kr/sitemap/sitemap-index.xml
-Host: https://blog.hyperpipe.kr
+Sitemap: https://tech.hyperpipe.kr/sitemap/sitemap-index.xml
+Host: https://tech.hyperpipe.kr
