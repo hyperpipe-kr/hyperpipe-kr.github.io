@@ -5,13 +5,11 @@ author: Rock Kang
 tags: docker
 description: 모델 서빙 환경으로 Docker
 categories: 딥러닝강의
-update: 2026-02-08T16:58:00.000Z
+update: 2026-02-08T17:18:00.000Z
 date: 2026-02-09
 상태: Ready
 title: 모델 서빙 환경 - Docker
 ---
-⚓
-
 ## Docker란?
 
 <hr style="border: none; height: 1px; background-color: #e0e0e0; margin: 16px 0;" />
