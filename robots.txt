@@ -1,3 +1,4 @@
 User-agent: *
-Sitemap: https://tech.hyperpipe.kr/sitemap/sitemap-index.xml
+Allow: /
+Sitemap: https://tech.hyperpipe.kr/sitemap-pages.xml
 Host: https://tech.hyperpipe.kr
