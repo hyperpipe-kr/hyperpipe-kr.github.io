@@ -26,7 +26,9 @@ module.exports = {
         resolveEnv: () => NETLIFY_ENV,
         env: {
           production: {
-            policy: [{ userAgent: '*' }],
+            policy: [{ userAgent: '*', allow: '/' }],
+            sitemap: 'https://tech.hyperpipe.kr/sitemap-pages.xml',
+            host: 'https://tech.hyperpipe.kr',
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
