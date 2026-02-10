@@ -50,7 +50,7 @@
     "build": "gatsby clean && gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "deploy": "gatsby clean && gatsby build && gh-pages -d public",
+    "deploy": "gatsby clean && gatsby build && gh-pages -d public --cname tech.hyperpipe.kr",
     "start": "npm run dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
