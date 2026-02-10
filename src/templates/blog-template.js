@@ -17,7 +17,7 @@ function BlogTemplate({ data }) {
 
   return (
     <Layout>
-      <Seo title={curPost?.title} description={curPost?.excerpt} />
+      <Seo title={curPost?.title} description={curPost?.description || curPost?.excerpt} />
       <PostHeader post={curPost} />
       <PostContent html={curPost.html} />
       <PostNavigator prevPost={prevPost} nextPost={nextPost} />
@@ -40,6 +40,7 @@ export const pageQuery = graphql`
         categories
         author
         emoji
+        description
       }
       fields {
         slug
