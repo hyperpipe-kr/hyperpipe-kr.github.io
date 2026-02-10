@@ -5,8 +5,8 @@ author: Rock Kang
 tags: docker
 description: 모델 서빙 환경으로 Docker
 categories: 딥러닝강의
-update: 2026-02-08T17:18:00.000Z
-date: 2026-02-09
+update: 2026-02-10T12:50:00.000Z
+date: 2025-10-01
 상태: Ready
 title: 모델 서빙 환경 - Docker
 ---
@@ -203,5 +203,3 @@ docker-compose down
 <hr style="border: none; height: 1px; background-color: #e0e0e0; margin: 16px 0;" />
 - [https://github.com/cserock/docker-example](https://github.com/cserock/docker-example)
 
-```toc
-```
