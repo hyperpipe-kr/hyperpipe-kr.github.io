@@ -1,6 +1,6 @@
 module.exports = {
   title: `HyperPipe Tech`,
-  description: `HyperPipe AI/AX 컨설팅, AI 교육, 팀 멘토링 전문 HyperPipe(하이퍼파이프) 기술 블로그`,
+  description: `AI/AX컨설팅 및 교육, AI 솔루션/Agent 구현, 팀 멘토링 전문 HyperPipe(하이퍼파이프) 기술 블로그`,
   language: `ko`, // `ko`, `en` => currently support versions for Korean and English
   siteUrl: `https://tech.hyperpipe.kr`,
   ogImage: `/og-image.png`, // Path to your in the 'static' folder
