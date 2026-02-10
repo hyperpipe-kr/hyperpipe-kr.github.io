@@ -49,10 +49,13 @@ module.exports = {
         trackingIds: [
           metaConfig.gtag, // Google Analytics / GA4
         ],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
         pluginConfig: {
           head: true,
-          respectDNT: true,
-          anonymize_ip: true,
+          respectDNT: false,
+          exclude: [],
         },
       },
     },

@@ -9,7 +9,7 @@ module.exports = {
       repo: ``, // `zoomkoding/zoomkoding-gatsby-blog`,
     },
   },
-  gtag: 'G-W93RQ6M10', // Google Tag (gtag.js) Measurement ID
+  gtag: 'G-W93RQ6M10J', // Google Tag (gtag.js) Measurement ID
   author: {
     name: `HyperPipe`,
     bio: {
