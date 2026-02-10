@@ -1,14 +1,14 @@
 ---
-emoji: ⚓
-IDX: 3
-author: Rock Kang
+emoji: "⚓"
+IDX: "3"
+author: "Rock Kang"
 tags: docker
-description: 모델 서빙 환경으로 Docker
+description: "모델 서빙 환경으로 Dockerㄹ"
 categories: 딥러닝강의
-update: 2026-02-10T14:14:00.000Z
-date: 2025-10-01
-상태: Ready
-title: 모델 서빙 환경 - Docker
+update: "2026-02-10T14:46:00.000Z"
+date: "2025-10-01"
+상태: "Ready"
+title: "모델 서빙 환경 - Docker"
 ---
 ## Docker란?
 
