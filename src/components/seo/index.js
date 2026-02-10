@@ -10,8 +10,15 @@ function Seo({ description, title }) {
           siteMetadata {
             title
             description
+            siteUrl
             author {
               name
+              social {
+                email
+                github
+                linkedIn
+                homepage
+              }
             }
             ogImage
           }
@@ -21,9 +28,38 @@ function Seo({ description, title }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  
+  // JSON-LD 구조화된 데이터
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: site.siteMetadata.author.name,
+    url: site.siteMetadata.siteUrl,
+    logo: `${site.siteMetadata.siteUrl}${site.siteMetadata.ogImage}`,
+    description: site.siteMetadata.description,
+    email: site.siteMetadata.author.social.email,
+    sameAs: [
+      site.siteMetadata.author.social.github,
+      site.siteMetadata.author.social.linkedIn,
+      site.siteMetadata.author.social.homepage,
+    ],
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: site.siteMetadata.title,
+    url: site.siteMetadata.siteUrl,
+    description: site.siteMetadata.description,
+    publisher: {
+      '@type': 'Organization',
+      name: site.siteMetadata.author.name,
+    },
+  };
+
   return (
     <Helmet
-      htmlAttributes={{ lang: 'en' }}
+      htmlAttributes={{ lang: 'ko' }}
       title={title}
       defaultTitle={site.siteMetadata.title}
       meta={[
@@ -56,8 +92,19 @@ function Seo({ description, title }) {
           property: `og:type`,
           content: `website`,
         },
+        {
+          name: `naver-site-verification`,
+          content: `beba24870ac48f446a8137554ca9a52b376af7c3`,
+        },
       ]}
-    />
+    >
+      <script type="application/ld+json">
+        {JSON.stringify(organizationSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(websiteSchema)}
+      </script>
+    </Helmet>
   );
 }
 

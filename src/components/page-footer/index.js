@@ -8,9 +8,9 @@ function PageFooter({ author, homepageUrl }) {
         © {new Date().getFullYear()}
         &nbsp;
         <a href={homepageUrl}>{author}</a>
-        <span style={{ color: '#aaa' }}>
+        <span style={{ color: '#ccc' }}>
           &nbsp;powered by
-          <a href="https://github.com/zoomKoding/zoomkoding-gatsby-blog" style={{ color: '#aaa' }}>
+          <a href="https://github.com/zoomKoding/zoomkoding-gatsby-blog" style={{ color: '#ccc' }}>
             &nbsp;zoomkoding-gatsby-blog
           </a>
         </span>
