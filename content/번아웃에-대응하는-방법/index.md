@@ -3,9 +3,9 @@ emoji: "😩🪫"
 IDX: "10"
 author: "Rock Kang"
 tags: 주니어엔지니어 성장 인터뷰
-description: "가치기반 프로젝트"
+description: "번아웃 대응 방법"
 categories: 멘토링 featured
-update: "2026-02-16T13:56:00.000Z"
+update: "2026-02-16T16:13:00.000Z"
 date: "2025-10-09"
 상태: "Ready"
 title: "번아웃에 대응하는 방법"

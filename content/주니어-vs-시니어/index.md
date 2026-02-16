@@ -4,8 +4,8 @@ IDX: "8"
 author: "Rock Kang"
 tags: 주니어엔지니어 성장 인터뷰
 description: "주니어, 시니어 역할 비교"
-categories: 멘토링 featured
-update: "2026-02-16T13:35:00.000Z"
+categories: 멘토링
+update: "2026-02-16T16:23:00.000Z"
 date: "2025-10-07"
 상태: "Ready"
 title: "주니어 vs 시니어"
