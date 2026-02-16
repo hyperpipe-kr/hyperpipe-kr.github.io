@@ -4,8 +4,8 @@ IDX: "6"
 author: "Rock Kang"
 tags: 주니어엔지니어 성장 인터뷰
 description: "채용 인터뷰 준비하는 방법"
-categories: 멘토링 featured
-update: "2026-02-10T15:40:00.000Z"
+categories: 멘토링
+update: "2026-02-16T13:52:00.000Z"
 date: "2025-10-03"
 상태: "Ready"
 title: "채용 인터뷰 준비하기"

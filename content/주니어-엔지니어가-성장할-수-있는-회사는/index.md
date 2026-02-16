@@ -4,8 +4,8 @@ IDX: "5"
 author: "Rock Kang"
 tags: 주니어엔지니어 성장 이직
 description: "엔지니어가 성장할 수 있는 회사를 찾는 기준 : 프로덕트 중심의 팀 구성, 리드 엔지니어, 성장을 향한 일하는 방법, 컬처핏, 프로덕트 인지도, 평판 조회"
-categories: 멘토링 featured
-update: "2026-02-10T14:46:00.000Z"
+categories: 멘토링
+update: "2026-02-16T13:52:00.000Z"
 date: "2025-10-02"
 상태: "Ready"
 title: "주니어 엔지니어가 성장할 수 있는 회사는?"
