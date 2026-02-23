@@ -1,11 +1,11 @@
 ---
-emoji: "📊👥"
+emoji: "👥📊"
 IDX: "13"
 author: "Rock Kang"
 tags: MDR Recommendation 추천
 description: "Multi-Domain Recommendation에 대한 리서치"
 categories: featured AI리서치
-update: "2026-02-23T03:30:00.000Z"
+update: "2026-02-23T05:08:00.000Z"
 date: "2025-12-22"
 상태: "Ready"
 title: "Multi-Domain Recommendation Is All You Need"
