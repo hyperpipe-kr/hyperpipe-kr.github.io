@@ -5,7 +5,7 @@ author: "Rock Kang"
 tags: MDR Recommendation 추천
 description: "Multi-Domain Recommendation에 대한 리서치"
 categories: featured AI리서치
-update: "2026-02-23T05:08:00.000Z"
+update: "2026-02-23T08:00:00.000Z"
 date: "2025-12-22"
 상태: "Ready"
 title: "Multi-Domain Recommendation Is All You Need"
@@ -199,6 +199,213 @@ Aggregator는 사용자의 history (interaction sequence)에 있는 item들의 e
 이때, H^X는 사용자의 history중 X도메인에서만 발생한 상품과의 interaction만 의미하고, H^S는 모든 도메인에서 발생한 interaction을 의미합니다.
 
 #### Masking Mechanism and Contrastive Loss
+
+추천 도메인에서 Contrastive Learning(CL)은 original interaction data을 변형해서 만든 positive pair와 임의로 만든 negative pair의 차이를 최대화하는 식으로 모델을 학습합니다. positive pair를 만드는 방법에는 임의로 user sequence 일부를 가리는 masking이 대표적이며 UniCDR은 아래의 masking mechanism을 사용합니다.
+
+1) Interaction masking : 일반적인 masking기법으로, user sequence에서 일정 비율의 interaction을 베르누이 분포를 통해 샘플링해서 masking합니다.
+
+2) Domain masking : inter-domain상황에서 추천을 하기 위해서는 source domain의 interaction만을 사용해서 추천해야합니다. 이런 경우에도 잘 동작하게 하기 위해 user-sequence에서 target domain 상품을 제거하는 domain masking을 적용합니다.
+
+masking mechanism을 적용해서 도메인별 user sequence와 전체 user sequence를 구한 뒤, domain X에 대해서 contrastive loss를 아래와 같이 구할 수 있습니다.
+
+![](image11.png)
+첫번째 DISC(. , .) 좌항은 H^X에 interaction masking 했을 때 representation이며, 우항은 H^S에 interaction masking과 domain masking을 한 representation입니다. (1-DISC(. , .)) 항은 masking을 적용한 negative pair 항입니다.
+
+#### Prediction Loss
+
+constrative loss가 좋은 representation을 위한거라면, 정확한 예측을 위한 prediction loss 또한 필요합니다. 이는 학습한 representation과 상품 임베딩을 사용해서 계산합니다.
+
+![](image12.png)
+multi-domain 환경에서 최종 training loss는 아래와 같다.
+
+![](image13.png)
+#### Model evaluation
+
+모델 평가는 앞서 한 번 얘기했듯이 intra-domain 상황에서는 specific-domain representation과 shared-domain representation을 모두 사용하고, inter-domain 상황에서는 shared-domain representation만 사용해서 추천을 합니다.
+
+intra-domain recommendation에서는,
+
+![](image14.png)
+inter-domain recommendation에서는 아래와 같이 사용합니다.
+
+![](image15.png)
+#### Experiments
+
+#### Datasets
+
+- Scenario 1,2 : 아마존 데이터셋
+
+- Scenario 3 : 아마존 데이터셋의 electronics를 5개 국가에 따라 도메인 분리
+
+- Scenario 4 : MYbank플랫폼에서 제공하는 3개 서비스의 interaction 데이터사용
+
+![](image16.png)
+#### Experimental Setting
+
+- leave-one-out 방법을 사용하고 하나의 ground truth마다 999개의 random negative sample을 만들어서 성능을 평가합니다.
+
+- NDCG, HR을 정확도 지표로 사용합니다.
+
+#### Performance Comparisons
+
+시나리오 1, 2의 결과에 대해 살펴봤을때 UniCDR이 각 시나리오에서 그 시나리오의 SOTA와 경쟁력있는 결과를 보입니다.
+
+![](image17.png)
+#### Conclusions
+
+- 해당 연구에서는 domain-shared information transferring 관점에서 universal CDR 시나리오를 위한 유연한 프레임워크인 UniCDR을 제안합니다.
+
+- 모든 CDR 시나리오에 대한 최적의 솔루션은 도메인 간에 가장 관련성이 높은 도메인 공유 정보를 캡쳐하고 전송하는 것입니다.
+
+- domain share representation 을 향상시키기 위해 masking mechanism과 대조 학습을 도입합니다.
+
+- 4가지 CDR 시나리오와 6가지 데이터 세트에 대한 광범위한 실험을 수행하며, 이는 UniCDR이 보편적인 능력을 보여주고 최신 방법으로 경쟁력 있는 결과를 달성한다는 것을 보여줍니다.
+
+### Multi-Domain Recommendation to Attract Users via Domain Preference Modeling, AAAI 2024
+
+- 논문 : [https://arxiv.org/pdf/2403.17374](https://arxiv.org/pdf/2403.17374)
+
+- 코드 : 미공개
+
+#### Motivation
+
+최근 웹플랫폼은 다양한 서비스 도메인을 동시에 운영하고 있으며 사용자는 일반적으로 모든 도메인이 아닌 소수의 도메인을 활용합니다. 기존 MDR 방식은 사용자가 이미 사용하고 있는 서비스(도메인)의 품질을 향상시킵니다. 해당 연구는 어떻게 하면 플랫폼의 다양한 도메인에 걸쳐 사용자 참여를 더욱 확장할 수 있는 Multi-Domain Recommendation to Attract Users(MDRAU)를 제안합니다.
+
+#### MDRAU
+
+![](image18.png)
+MDRAU는 사용자 경험을 다양화하고 우연한 발견을 촉진하여 사용자 참여를 향상시키는 데 도움이 되며 target domain의 수에 따라 다음과 같은 시나리오가 있습니다.
+
+- MDRAU-ST : A single target domain
+
+- MDRAU-MT : Multiple target domain
+
+#### Challenges of MDRAU
+
+1) 사용자의 target domain으로부터 positive feedback을 받기 어려움
+
+- 소스 도메인의 긍정적인 피드백 정보를 활용함
+
+2) 각 사용자의 seen domain과 unseen domain의 조합이 다양함
+
+- 기존 Cross-Domain Recommendation 방식을 적용하기는 어려움
+
+3) 사용자는 각 unseen domain에 대해 서로 다른 기본 설정을 가지고 있음
+
+- 도메인 선호도가 추천 과정에 적절히 반영되어야 함
+
+이를 해결하기 위해 **Masked Domain Modeling**, **Domain-level Preference Modeling**을 제안합니다.
+
+#### Masked Domain Modeling
+
+- 컨텍스트를 기반으로 누락된 도메인 정보에 대한 예측 작업을 공식화합니다.
+
+- 입력에서 domain-specific user embeddings 중 일부를 무작위로 마스킹합니다.
+
+- 마스킹된 도메인에서 사용자 선호도를 예측하도록 모델을 훈련합니다.
+
+![](image19.png)
+#### Domain-level Preference Modeling
+
+- domain-level preference는 사용자 *u*에 대한 special token S의 contextualized representation을 사용하여 추론할 수 있습니다.
+
+- domain-level preferences는 domain-specific user preference와 결합됩니다.
+
+![](image20.png)
+#### Optimization
+
+모델 학습을 위한 Objective function과 Preference Modeling은 다음과 같습니다.
+
+![](image21.png)
+#### Experiments
+
+1) MDRAU-MT 결과
+
+- 이 연구에서 제안한 DRIP은 다른 모델보다 성능이 뛰어납니다.
+
+- Collective CF(BPRMF))는 multi-task learning(MMOE)보다 더 나은 성능을 보입니다.
+
+- cold-start 사용자를 위해 상대적으로 괜찮은 성능을 보여줍니다.
+
+- 소스에서 타겟까지의 매핑 관계를 명시적으로 학습하는 것이 중요합니다.
+
+![](image22.png)
+2) MDRAU-ST 결과
+
+- DRIP은 지속적으로 더 높은 추천 정확도를 달성합니다.
+
+- 일대일 CDR 방법은 여러 소스 도메인을 효과적으로 처리하는 방법에 비해 정확도가 낮습니다.
+
+![](image23.png)
+#### Conclusion
+
+- 해당 연구는 novel한 MDRAU task를 제안합니다.
+
+- MDRAU은 사용자 경험을 다양화하고 사용자 참여를 향상시키는 데 도움이 됩니다.
+
+- MDRAU 작업을 위한 프레임워크를 제안합니다.
+
+- Masked domain modeling은 사용자의 unseen domain items을 추천하는 데 효과적입니다.
+
+- Domain-level preference modeling은 MDRAU-MT에 효과적입니다.
+
+## Experimental Setting
+
+UniSRec, UniCDR, MDRAU 모델의 성능을 비교하기 위해 도메인을 선정하고 서비스의 사용자 행동 데이터와 아이템 데이터를 사용해 모델의 성능을 실험합니다. 이때 NDCG, HR을 정확도 지표로 사용합니다. 가장 높은 성능의 모델을 선택한 다음, 모델을 구현하고 상용 환경에 배포합니다. 추천 결과를 모니터링하여 이를 기반으로 장기적으로 모델의 성능을 개선합니다.
+
+### Source, Target domain 선정
+
+빠른 실행을 위해 A, B 두 서비스를 대상으로 선정합니다. 두 서비스를 비교시 상대적으로 사용자와 사용자 행동 데이터가 많은 A를 source domain으로 B를 target domain으로 선정합니다.
+
+### Datasets
+
+A, B 서비스의 지난 1년 간의 사용자 행동 데이터, item 데이터를 확보하여 학습에 사용합니다.
+
+- user가 item을 구매한 내역(구매 순서 포함)과 like한 내역
+
+- user가 item에 평점과 리뷰를 남긴 내역
+
+- user가 item 페이지를 방문한 내역
+
+- user의 텍스트 정보(나이, 성별, 지역, 관심 카테고리, 작성한 리뷰 등)
+
+- item의 텍스트 정보(카테고리, 브랜드, 설명 등 텍스트 정보 등)
+
+서비스별 사용자가 동일임을 구분하기 위해 아래의 사용자 데이터를 사용합니다. 본인 인증시 발급되는 CI(Connecting Information)를 우선으로 본인 인증을 하지 않은 사용자는 아래 데이터를 중복 검증하여 동일 사용자를 구분합니다.
+
+- sms 수신으로 인증된 휴대폰 번호
+
+- 인증된 이메일 주소
+
+- 수집된 클라이언트 device id(iOS, Android, Web)
+
+### 연구별 실행 코드 확보
+
+각 논문의 github를 참고하여 실행 코드를 확보하고 코드가 공개되어 있지 않은 경우 논문 저자에게 요청하여 가능한 코드를 확보하도록 합니다.
+
+- UniSRec : [https://github.com/RUCAIBox/UniSRec](https://github.com/RUCAIBox/UniSRec)
+
+- UniCDR : [https://github.com/cjx96/UniCDR](https://github.com/cjx96/UniCDR)
+
+- MDRAU : 미공개
+
+### 모델별 실험 및 결과 비교
+
+- 준비된 데이터로 각 모델을 실행하고 성능을 비교하여 가장 높은 성능의 모델을 채택합니다.
+
+- NDCG, HR을 정확도 지표로 사용합니다.
+
+### 빠른 모델 구현과 서빙을 위한 Langchain 활용
+
+사용자 데이터나 아이템 데이터를 embedding 하여 representation 생성시나 여러 모델의 실험시 효율성을 위해 [LangChain](https://python.langchain.com/v0.2/docs/introduction/)을 활용하여 효율적으로 구현하고 서빙을 위한 모델의 배포 파이프라인까지도 고려해서 구현합니다.
+
+### 모델 개선
+
+모델 배포 이후 추천 결과를 모니터링하여 분석하고 모델의 성능을 개선합니다.
+
+## Conclusion
+
+Multi-Domain Recommendation(MDR) 문제 해결을 위해 최근의 MDR 연구를 살펴보고 현업에 적용하기 위한 연구 방향을 제안합니다. UniSRec, UniCDR, MDRAU 모델들을 살펴보면서 도메인의 정의부터 사용자, item 데이터를 text representation하는 방법과 모델의 성능을 끌어올리기 위한 기법들을 깊게 살펴봤습니다. 이를 현업에 적용하기 위해 A, B 두 서비스를 각각 source domain과 target domain으로 지정하고, 이미 수집한 사용자, 아이템 데이터를 기반으로 각 추천 모델의 성능을 실험, 비교하여 가장 높은 성능의 모델을 선택한 후, LangChain을 활용하여 효율적으로 데이터 representation과 모델을 구현하여 상용 환경에 배포하는 것이 1차 목표입니다. 이후 추천 결과를 모니터링하여 모델의 성능을 지속적으로 개선하려 합니다. 2개의 서비스를 기반으로 CDR을 시작하지만 장기적인 목표는 자사의 4개 서비스 도메인에서 사용자에게 추천이 가능한 MDR 모델로 확장하는 것입니다.
 
 
 ```toc
