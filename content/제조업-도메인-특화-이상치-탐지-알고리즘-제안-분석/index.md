@@ -5,7 +5,7 @@ author: "Rock Kang"
 tags: ZSAD AnomalyCLIP CLIP
 description: "어텐션 헤드 가중치 부여를 통한 제조업 도메인 특화 이상치 탐지 알고리즘 제안 분석"
 categories: featured AI리서치
-update: "2026-03-03T13:57:00.000Z"
+update: "2026-03-03T15:06:00.000Z"
 date: "2026-01-02"
 상태: "Ready"
 title: "제조업 도메인 특화 이상치 탐지 알고리즘 제안 분석"
@@ -137,7 +137,7 @@ ImageNet 데이터셋 이미지 representation과 후보 텍스트 representatio
 
 ### Comment
 
-- 본 연구를 통해 수업에서 배운 CLIP에 대해 깊게 이해할 수 있었고 image representation은 MSA 연산결과와 MLP 연산결과의 합으로 표현될 수 있다는 점과, 두 요소 중 MSA가 압도적으로 중요하다는 것과 뒷 단의 4개의 레이어가 가장 많은 영향을 미친다는 것이 인상적이었음
+- 본 연구를 통해 CLIP에 대해 깊게 이해할 수 있었고 image representation은 MSA 연산결과와 MLP 연산결과의 합으로 표현될 수 있다는 점과, 두 요소 중 MSA가 압도적으로 중요하다는 것과 뒷 단의 4개의 레이어가 가장 많은 영향을 미친다는 것이 인상적이었음
 
 - AnomalyCLIP와 같은 ZSAD(Zero-Shot Anomaly Detection)은 데이터 프라이버시에 민감해서 훈련 데이터에 접근할 수 없거나 훈련 데이터가 부족한 제조업 이상탐지에 최적인 방법이며 이러한 도메인 일반화 이상탐지는 최근 연구의 주된 흐름임을 인지함
 
